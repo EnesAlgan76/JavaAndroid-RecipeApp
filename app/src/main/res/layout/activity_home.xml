@@ -35,7 +35,7 @@
             android:textSize="20sp" />
     </LinearLayout>
 
-    <!-- Image with rounded corners -->
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="wrap_content"
@@ -183,7 +183,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
-        <!-- Search Tile -->
+
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
@@ -251,6 +251,7 @@
 
         <!-- Generate Recipe Tile -->
         <LinearLayout
+            android:id="@+id/generate_recipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
