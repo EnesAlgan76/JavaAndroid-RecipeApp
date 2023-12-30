@@ -1,5 +1,7 @@
 package com.msku.example.hacininyeri;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +16,11 @@ import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
     private List<Category> categoryList;
+    private Context mContext;
 
-    public CategoryAdapter(List<Category> categoryList) {
+    public CategoryAdapter(Context mContext,List<Category> categoryList) {
         this.categoryList = categoryList;
+        this.mContext = mContext;
     }
 
     @Override
@@ -46,6 +50,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             super(itemView);
             categoryImage = itemView.findViewById(R.id.iv_categoryImage);
             categoryName = itemView.findViewById(R.id.tv_categoryName);
+            itemView.setOnClickListener(view ->{
+                mContext.startActivity(new Intent(mContext,RecipeListActivity.class));
+            });
         }
     }
 }

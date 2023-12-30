@@ -40,7 +40,7 @@ public class ExploreActivity extends AppCompatActivity {
 
 
         MealAdapter mealAdapter = new MealAdapter(this, mealList);
-        CategoryAdapter categoryAdapter = new CategoryAdapter(categoryList);
+        CategoryAdapter categoryAdapter = new CategoryAdapter(this,categoryList);
         MyRecipeAdapter myRecipeAdapter = new MyRecipeAdapter(this, myRecipeList);
 
         recyclerView1.setAdapter(mealAdapter);
