@@ -1,29 +1,25 @@
 package com.msku.example.hacininyeri;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.msku.example.hacininyeri.models.Category;
 
 import java.util.List;
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
+public class SelectCategoryAdapter extends RecyclerView.Adapter<SelectCategoryAdapter.CategoryViewHolder> {
     private List<Category> categoryList;
     private Context mContext;
-    OnCategoryClickListener categoryClickListener;
 
-    public CategoryAdapter(Context mContext, OnCategoryClickListener categoryClickListener, List<Category> categoryList) {
+    public SelectCategoryAdapter(Context mContext, List<Category> categoryList) {
         this.categoryList = categoryList;
         this.mContext = mContext;
-        this.categoryClickListener =categoryClickListener;
     }
 
     @Override
@@ -35,8 +31,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public void onBindViewHolder(CategoryViewHolder holder, int position) {
         Category category = categoryList.get(position);
-         holder.categoryName.setText(category.getName());
-         holder.categoryImage.setImageResource(category.getImage());
+        holder.categoryName.setText(category.getName());
+        holder.categoryImage.setImageResource(category.getImage());
     }
 
     @Override
@@ -46,15 +42,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder {
 
-         ImageView categoryImage;
-         TextView categoryName;
+        ImageView categoryImage;
+        TextView categoryName;
 
         public CategoryViewHolder(View itemView) {
             super(itemView);
             categoryImage = itemView.findViewById(R.id.iv_categoryImage);
             categoryName = itemView.findViewById(R.id.tv_categoryName);
             itemView.setOnClickListener(view ->{
-                categoryClickListener.onCategoryClick(0);
+                //categoryClickListener.onCategoryClick(0);
                 //mContext.startActivity(new Intent(mContext,RecipeListActivity.class));
             });
         }

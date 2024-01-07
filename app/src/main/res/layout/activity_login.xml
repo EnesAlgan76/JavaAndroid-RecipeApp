@@ -52,7 +52,7 @@
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="Email"
             android:background="@drawable/shape_textfield_noborders"
             android:inputType="text"
             android:layout_weight="1"

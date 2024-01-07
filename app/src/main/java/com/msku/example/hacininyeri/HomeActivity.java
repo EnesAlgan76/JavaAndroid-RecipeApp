@@ -5,52 +5,74 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-public class HomeActivity extends AppCompatActivity {
-    LinearLayout generaterecipe;
-    LinearLayout favorites;
-    LinearLayout search;
+public class HomeActivity extends AppCompatActivity implements OnCategoryClickListener{
+    ImageView home;
     ImageView explore;
-    CardView addRecipe;
+    ImageView favorites;
+    ImageView profile;
+
+    FrameLayout fragmentContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        generaterecipe = findViewById(R.id.generate_recipe);
-        search = findViewById(R.id.search);
+        home = findViewById(R.id.iv_home);
         explore = findViewById(R.id.iv_explore);
-        favorites = findViewById(R.id.favorites);
-        addRecipe = findViewById(R.id.btn_addNewRecipe);
+        favorites = findViewById(R.id.iv_favorite);
+        profile = findViewById(R.id.iv_profile);
+        fragmentContainer = findViewById(R.id.framentContainer);
 
-        generaterecipe.setOnClickListener(view ->{
-            startActivity(new Intent(this, GenerateActivity.class));
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.framentContainer, new HomeFragment())
+                .commit();
 
-           });
+
+
+        home.setOnClickListener(view ->{
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.framentContainer, new HomeFragment())
+                    .commit();
+
+        });
+
+
 
         explore.setOnClickListener(view ->{
-            startActivity(new Intent(this, ExploreActivity.class));
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.framentContainer, new ExploreFragment(this))
+                    .commit();
 
         });
 
-        search.setOnClickListener(view ->{
-            startActivity(new Intent(this, SearchActivity.class));
 
-        });
 
         favorites.setOnClickListener(view ->{
-            startActivity(new Intent(this, RecipeListActivity.class));
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.framentContainer, new RecipeListFragment())
+                    .commit();
 
         });
 
-        addRecipe.setOnClickListener(view ->{
-            startActivity(new Intent(this, AddRecipeActivity.class));
+
+
+        profile.setOnClickListener(view ->{
+          //  startActivity(new Intent(this, ExploreActivity.class));
 
         });
 
 
+    }
+
+    @Override
+    public void onCategoryClick(int position) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.framentContainer, new RecipeListFragment())
+                .commit();
     }
 }

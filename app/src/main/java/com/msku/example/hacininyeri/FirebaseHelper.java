@@ -28,7 +28,6 @@ public class FirebaseHelper {
         categories.add(new Category("Hamur İşleri", R.drawable.pastry));
         categories.add(new Category("Çorba", R.drawable.soup));
         categories.add(new Category("Salata", R.drawable.salad));
-        // Add more categories as needed
 
         return categories;
     }

@@ -21,7 +21,7 @@ public class AddRecipeActivity extends AppCompatActivity {
         RecyclerView recyclerViewCategory = findViewById(R.id.rv_add_categories);
         recyclerViewCategory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        CategoryAdapter categoryAdapter = new CategoryAdapter(this,categoryList);
+        SelectCategoryAdapter categoryAdapter = new SelectCategoryAdapter(this, categoryList);
 
         recyclerViewCategory.setAdapter(categoryAdapter);
     }

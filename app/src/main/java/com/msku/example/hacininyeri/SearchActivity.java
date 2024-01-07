@@ -6,10 +6,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.msku.example.hacininyeri.CategoryAdapter;
-import com.msku.example.hacininyeri.FirebaseHelper;
-import com.msku.example.hacininyeri.MyRecipeAdapter;
-import com.msku.example.hacininyeri.R;
 import com.msku.example.hacininyeri.models.Category;
 
 import java.util.List;
@@ -29,7 +25,7 @@ public class SearchActivity extends AppCompatActivity {
         recyclerViewCategory = findViewById(R.id.recyclerView_category);
         recyclerViewCategory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        CategoryAdapter categoryAdapter = new CategoryAdapter(this,categoryList);
+        SelectCategoryAdapter categoryAdapter = new SelectCategoryAdapter(this,  categoryList);
 
         recyclerViewCategory.setAdapter(categoryAdapter);
     }
