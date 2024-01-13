@@ -37,6 +37,36 @@
 
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Username" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="12dp"
+        app:cardCornerRadius="24dp"
+        app:cardBackgroundColor="#EDEDED">
+        <EditText
+            android:id="@+id/et_registerMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:background="@drawable/shape_textfield_noborders"
+            android:inputType="text"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:padding="16dp" />
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,7 +85,7 @@
         app:cardCornerRadius="24dp">
 
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/et_registerPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -67,34 +97,6 @@
     </androidx.cardview.widget.CardView>
 
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="Email" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="12dp"
-        app:cardCornerRadius="24dp"
-        app:cardBackgroundColor="#EDEDED">
-        <EditText
-            android:id="@+id/editTextIngredients"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:background="@drawable/shape_textfield_noborders"
-            android:inputType="text"
-            android:layout_weight="1"
-            android:maxLines="1"
-            android:padding="16dp" />
-    </androidx.cardview.widget.CardView>
 
 
     <androidx.cardview.widget.CardView

@@ -27,13 +27,13 @@
             android:name=".GenerateActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".LoginRegisterPage.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginRegisterPage.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".ExploreActivity"

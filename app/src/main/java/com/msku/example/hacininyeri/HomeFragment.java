@@ -35,20 +35,20 @@ public class HomeFragment extends Fragment {
 
 
 
-        search.setOnClickListener(v ->{
-           // startActivity(new Intent(this, SearchActivity.class));
-
-        });
-
-        favorites.setOnClickListener(v ->{
-            //startActivity(new Intent(this, RecipeListActivity.class));
-
-        });
-
-        addRecipe.setOnClickListener(v ->{
-           // startActivity(new Intent(this, AddRecipeActivity.class));
-
-        });
+//        search.setOnClickListener(v ->{
+//           // startActivity(new Intent(this, SearchActivity.class));
+//
+//        });
+//
+//        favorites.setOnClickListener(v ->{
+//            //startActivity(new Intent(this, RecipeListActivity.class));
+//
+//        });
+//
+//        addRecipe.setOnClickListener(v ->{
+//           // startActivity(new Intent(this, AddRecipeActivity.class));
+//
+//        });
 
         // Inflate the layout for this fragment
         return view;
