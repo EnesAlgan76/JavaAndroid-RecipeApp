@@ -5,12 +5,23 @@ public class Meal {
     private String preparationTime;
     private String rating;
     private String imageUrl;
+    private String category;
 
-    public Meal(String name, String preparationTime, String rating, String imageUrl) {
+
+    public Meal(String name, String preparationTime, String rating, String imageUrl, String category) {
         this.name = name;
         this.preparationTime = preparationTime;
         this.rating = rating;
         this.imageUrl = imageUrl;
+        this.category = category;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getName() {

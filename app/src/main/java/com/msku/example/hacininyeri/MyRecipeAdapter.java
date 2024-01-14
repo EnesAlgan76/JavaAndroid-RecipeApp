@@ -10,14 +10,15 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.msku.example.hacininyeri.models.MyRecipe;
+import com.msku.example.hacininyeri.models.Meal;
+
 import java.util.List;
 
 public class MyRecipeAdapter extends RecyclerView.Adapter<MyRecipeAdapter.MyRecipeViewHolder> {
-    private List<MyRecipe> myRecipeList;
+    private List<Meal> myRecipeList;
     private Context mContext;
 
-    public MyRecipeAdapter(Context context,List<MyRecipe> myRecipeList) {
+    public MyRecipeAdapter(Context context,List<Meal> myRecipeList) {
         this.myRecipeList = myRecipeList;
         this.mContext = context;
     }
@@ -30,8 +31,8 @@ public class MyRecipeAdapter extends RecyclerView.Adapter<MyRecipeAdapter.MyReci
 
     @Override
     public void onBindViewHolder(MyRecipeViewHolder holder, int position) {
-        MyRecipe myRecipe = myRecipeList.get(position);
-        holder.recipeTitle.setText(myRecipe.getTitle());
+        Meal myRecipe = myRecipeList.get(position);
+        holder.recipeTitle.setText(myRecipe.getName());
        // holder.starCount.setText(String.valueOf(myRecipe.getStarCount()));
         Glide.with(mContext).load(myRecipe.getImageUrl()).into(holder.recipeImage);
     }

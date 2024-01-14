@@ -9,6 +9,7 @@ import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.msku.example.hacininyeri.Constants;
 
 public class Model {
     LoginState state;
@@ -58,6 +59,7 @@ public class Model {
                             @Override
                             public void run() {
                                 state.onLogged();
+                                Constants.userId =querySnapshot.getDocuments().get(0).getId() ;
                             }
                         });
                     } else {

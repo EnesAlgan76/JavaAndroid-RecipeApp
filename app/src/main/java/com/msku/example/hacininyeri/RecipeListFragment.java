@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.msku.example.hacininyeri.models.MyRecipe;
+import com.msku.example.hacininyeri.models.Meal;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class RecipeListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_recipe_list, container, false);
 
-        List<MyRecipe> myRecipeList = FirebaseHelper.getMyRecipeList();
+        List<Meal> myRecipeList = FirebaseHelper.getMyRecipeList();
 
         RecyclerView recyclerView = view.findViewById(R.id.rv_recipes);
 

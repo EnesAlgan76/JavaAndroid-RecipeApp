@@ -45,10 +45,10 @@ public class HomeFragment extends Fragment {
 //
 //        });
 //
-//        addRecipe.setOnClickListener(v ->{
-//           // startActivity(new Intent(this, AddRecipeActivity.class));
-//
-//        });
+         addRecipe.setOnClickListener(v ->{
+             startActivity(new Intent(requireContext(), AddRecipeActivity.class));
+
+         });
 
         // Inflate the layout for this fragment
         return view;

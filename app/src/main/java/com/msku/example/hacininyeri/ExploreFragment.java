@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.msku.example.hacininyeri.models.Category;
 import com.msku.example.hacininyeri.models.Meal;
-import com.msku.example.hacininyeri.models.MyRecipe;
 
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class ExploreFragment extends Fragment {
 
         List<Meal> mealList = FirebaseHelper.getMealList();
         List<Category> categoryList = FirebaseHelper.getCategoryList();
-        List<MyRecipe> myRecipeList = FirebaseHelper.getMyRecipeList();
+        List<Meal> myRecipeList = FirebaseHelper.getMyRecipeList();
 
 
         RecyclerView recyclerView1 = view.findViewById(R.id.recyclerView2);
