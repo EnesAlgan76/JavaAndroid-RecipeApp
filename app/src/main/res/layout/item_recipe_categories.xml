@@ -9,9 +9,9 @@
     app:cardElevation="4dp">
 
     <LinearLayout
+        android:id="@+id/lineer_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="18dp">
@@ -20,6 +20,7 @@
             android:id="@+id/iv_categoryImage"
             android:layout_width="75dp"
             android:layout_height="75dp"
+            android:layout_margin="12dp"
             android:scaleType="fitCenter"
             android:src="@drawable/dessert" />
 

@@ -1,10 +1,11 @@
 package com.msku.example.hacininyeri;
 
-import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,10 +15,11 @@ import com.msku.example.hacininyeri.models.Category;
 import java.util.List;
 
 public class SelectCategoryAdapter extends RecyclerView.Adapter<SelectCategoryAdapter.CategoryViewHolder> {
+    private Category selectedCategory;
     private List<Category> categoryList;
-    private Context mContext;
+    private OnCategoryClickListener mContext;
 
-    public SelectCategoryAdapter(Context mContext, List<Category> categoryList) {
+    public SelectCategoryAdapter(OnCategoryClickListener mContext, List<Category> categoryList) {
         this.categoryList = categoryList;
         this.mContext = mContext;
     }
@@ -33,6 +35,17 @@ public class SelectCategoryAdapter extends RecyclerView.Adapter<SelectCategoryAd
         Category category = categoryList.get(position);
         holder.categoryName.setText(category.getName());
         holder.categoryImage.setImageResource(category.getImage());
+
+        // Check if the category is selected and set the background color accordingly
+        if (selectedCategory != null && selectedCategory.equals(category)) {
+            holder.lineer.setBackgroundColor(Color.DKGRAY);
+            holder.categoryName.setTextColor(Color.WHITE);
+        } else {
+            holder.lineer.setBackgroundColor(Color.WHITE);
+            holder.categoryName.setTextColor(Color.BLACK);
+        }
+
+        holder.bind(category);
     }
 
     @Override
@@ -44,14 +57,22 @@ public class SelectCategoryAdapter extends RecyclerView.Adapter<SelectCategoryAd
 
         ImageView categoryImage;
         TextView categoryName;
+        LinearLayout lineer;
 
         public CategoryViewHolder(View itemView) {
             super(itemView);
             categoryImage = itemView.findViewById(R.id.iv_categoryImage);
             categoryName = itemView.findViewById(R.id.tv_categoryName);
+            lineer = itemView.findViewById(R.id.lineer_card);
+        }
+
+        public void bind(Category category) {
             itemView.setOnClickListener(view ->{
-                //categoryClickListener.onCategoryClick(0);
-                //mContext.startActivity(new Intent(mContext,RecipeListActivity.class));
+                mContext.onCategoryClick(categoryName.getText().toString());
+
+                // Update the selected category and notify the adapter
+                selectedCategory = category;
+                notifyDataSetChanged();
             });
         }
     }

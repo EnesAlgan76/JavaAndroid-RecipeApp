@@ -54,7 +54,7 @@ public class HomeActivity extends AppCompatActivity implements OnCategoryClickLi
 
         favorites.setOnClickListener(view ->{
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.framentContainer, new RecipeListFragment())
+                    .replace(R.id.framentContainer, new RecipeListFragment(new Favorites()))
                     .commit();
 
         });
@@ -62,17 +62,18 @@ public class HomeActivity extends AppCompatActivity implements OnCategoryClickLi
 
 
         profile.setOnClickListener(view ->{
-          //  startActivity(new Intent(this, ExploreActivity.class));
-
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.framentContainer, new ProfileFragment())
+                    .commit();
         });
 
 
     }
 
     @Override
-    public void onCategoryClick(int position) {
+    public void onCategoryClick(String categoryName) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.framentContainer, new RecipeListFragment())
+                .replace(R.id.framentContainer, new RecipeListFragment(new Category(categoryName)))
                 .commit();
     }
 }

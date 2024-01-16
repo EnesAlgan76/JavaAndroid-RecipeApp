@@ -54,7 +54,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             categoryImage = itemView.findViewById(R.id.iv_categoryImage);
             categoryName = itemView.findViewById(R.id.tv_categoryName);
             itemView.setOnClickListener(view ->{
-                categoryClickListener.onCategoryClick(0);
+                categoryClickListener.onCategoryClick(categoryName.getText().toString());
                 //mContext.startActivity(new Intent(mContext,RecipeListActivity.class));
             });
         }

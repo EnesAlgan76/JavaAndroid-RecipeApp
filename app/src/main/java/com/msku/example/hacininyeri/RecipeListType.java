@@ -1,17 +1,38 @@
 package com.msku.example.hacininyeri;
 
 public class RecipeListType {
-    public static void Search(String word, String categoryName) {
 
-        System.out.println("Searching for word: " + word + " in category: " + categoryName);
+}
+
+class Search extends RecipeListType {
+    private String word;
+    private String categoryName;
+
+    public Search(String word, String categoryName) {
+        this.word = word;
+        this.categoryName = categoryName;
     }
 
-    public static void Category(String categoryName) {
-        System.out.println("Filtering by category: " + categoryName);
+    public String getWord() {
+        return word;
     }
 
-    public static void Favorites() {
-        System.out.println("Displaying favorites");
+    public String getCategoryName() {
+        return categoryName;
     }
 }
 
+class Category extends RecipeListType {
+    private String categoryName;
+
+    public Category(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+}
+
+class Favorites extends RecipeListType {
+}

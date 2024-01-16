@@ -3,6 +3,8 @@ package com.msku.example.hacininyeri;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -28,30 +30,31 @@ public class HomeFragment extends Fragment {
         favorites =view.findViewById(R.id.favorites);
         addRecipe =view.findViewById(R.id.btn_addNewRecipe);
 
+        return view;
+
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         generaterecipe.setOnClickListener(v ->{
             startActivity(new Intent(requireContext(), GenerateActivity.class));
 
         });
 
 
+        search.setOnClickListener(v ->{
+            startActivity(new Intent(requireContext(), SearchActivity.class));
+        });
 
-//        search.setOnClickListener(v ->{
-//           // startActivity(new Intent(this, SearchActivity.class));
-//
-//        });
-//
-//        favorites.setOnClickListener(v ->{
-//            //startActivity(new Intent(this, RecipeListActivity.class));
-//
-//        });
-//
-         addRecipe.setOnClickListener(v ->{
-             startActivity(new Intent(requireContext(), AddRecipeActivity.class));
+        favorites.setOnClickListener(v ->{
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.framentContainer, new RecipeListFragment(new Favorites()))
+                    .commit();
+        });
 
-         });
+        addRecipe.setOnClickListener(v ->{
+            startActivity(new Intent(requireContext(), AddRecipeActivity.class));
 
-        // Inflate the layout for this fragment
-        return view;
-
+        });
     }
 }

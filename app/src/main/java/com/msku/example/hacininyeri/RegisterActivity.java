@@ -20,7 +20,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         editTextEmail = findViewById(R.id.editTextIngredients);
-        editTextPassword = findViewById(R.id.editTextPassword);
+        editTextPassword = findViewById(R.id.et_search);
         buttonRegister = findViewById(R.id.buttonRegister);
         textCreateAccount = findViewById(R.id.textCreateAccount);
 
