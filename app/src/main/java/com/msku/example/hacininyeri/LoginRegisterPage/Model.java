@@ -18,21 +18,8 @@ public class Model {
         this.state = state;
     }
 
-//    public void loginUser(String username, String password){
-//        state.onProccess();
-//
-//        try{
-//            if (username.equals("enes")  && password.equals("12345")){
-//                state.onLogged();
-//                Log.e("Giriş", username + password);
-//            }else {
-//                state.onUserNotFound();
-//            }
-//        } catch (Throwable e){
-//            state.onError();
-//        }
-//
-//    }
+
+    // ******  YUSUF YILDIZ  *******
 
     public void loginUser(final String username, final String password) {
         new Thread(new Runnable() {

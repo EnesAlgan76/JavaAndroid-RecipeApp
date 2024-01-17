@@ -13,6 +13,8 @@ import com.msku.example.hacininyeri.models.Meal;
 
 public class RecipeDetailActivity extends AppCompatActivity {
 
+    // ***** YUSUF YILDIZ ******
+
     ImageView mainImage;
     TextView tv_star;
     TextView tv_time;

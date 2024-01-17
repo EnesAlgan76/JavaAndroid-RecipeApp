@@ -109,4 +109,9 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MealViewHolder
         });
 
     }
+
+    public void addItem(Meal meal){
+        mealList.add(meal);
+        notifyItemInserted(mealList.size()-1);
+    }
 }

@@ -35,6 +35,8 @@ public class FirebaseHelper {
     public static ArrayList<Meal> getMyRecipeList() {
         ArrayList<Meal> myRecipes = new ArrayList<>();
 
+
+
         myRecipes.add(new Meal("fr24fr42","Baklava", "60 mins", "5.0","https://www.asiltat.com/upload/productsImage/2000x1333/fstkl_baklava.jpeg","Tatlı","AÇIKLAMA"));
         myRecipes.add(new Meal("2fr4fr42","Sütlaç", "40 mins", "4.5","https://i0.wp.com/yemektarifial.com/wp-content/uploads/2022/10/Iki-Kisilik-Sutlac-Tarifi.jpg","Tatlı","AÇIKLAMA"));
         myRecipes.add(new Meal("f2r43fr42","İskender", "40 mins", "4","https://d17wu0fn6x6rgz.cloudfront.net/img/w/tarif/mgt/iskender.webp", "Et Yemekleri","AÇIKLAMA"));

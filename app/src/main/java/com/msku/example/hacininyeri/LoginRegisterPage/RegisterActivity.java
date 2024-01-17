@@ -15,6 +15,8 @@ import com.msku.example.hacininyeri.R;
 import java.util.HashMap;
 import java.util.Map;
 
+// ******  YUSUF YILDIZ  *******
+
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText editTextEmail, editTextPassword;
@@ -51,6 +53,8 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     public void registerUser(String username, String password) {
         Map<String, Object> user = new HashMap<>();

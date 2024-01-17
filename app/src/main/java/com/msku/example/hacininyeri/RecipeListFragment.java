@@ -39,12 +39,13 @@ public class RecipeListFragment extends Fragment {
         switch (listType.getClass().getSimpleName()) {
             case "Search":
                 Search search = (Search) listType;
-                getSearchResult(search.getWord(), search.getCategoryName());
+                getSearchResult(search.getWord(), search.getCategoryName());  //ENES ALĞAN
                 break;
 
             case "Category":
                 Category category = (Category) listType;
-                System.out.println("Category: " + category.getCategoryName());
+                getCategoryMeals(category.getCategoryName());
+                System.out.println("Category: " + category.getCategoryName());  //YUSUF YILDIZ
                 break;
 
             case "Favorites":
@@ -65,6 +66,7 @@ public class RecipeListFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext());
         recyclerView.setLayoutManager(layoutManager);
 
+
         myRecipeAdapter = new MyRecipeAdapter(requireContext(), mealList);
         recyclerView.setAdapter(myRecipeAdapter);
 
@@ -72,6 +74,24 @@ public class RecipeListFragment extends Fragment {
 
 
         return view;
+    }
+
+    private void getCategoryMeals(String categoryName) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("recipes")
+                .whereEqualTo("category",categoryName).get().addOnSuccessListener(queryDocumentSnapshots -> {
+                    for (QueryDocumentSnapshot queryDocumentSnapshot : queryDocumentSnapshots) {
+                        myRecipeAdapter.addItem(new Meal(
+                                queryDocumentSnapshot.getString("id"),
+                                queryDocumentSnapshot.getString("recipeName"),
+                                queryDocumentSnapshot.getString("time"),
+                                queryDocumentSnapshot.getString("rating") != null ? queryDocumentSnapshot.getString("rating") : "-",
+                                queryDocumentSnapshot.getString("imageUrl"),
+                                queryDocumentSnapshot.getString("category"),
+                                queryDocumentSnapshot.getString("preparation")
+                        ));
+                    }
+                });
     }
 
 
@@ -87,7 +107,7 @@ public class RecipeListFragment extends Fragment {
     private void fetchFavoriteMealsData(QuerySnapshot favoriteDocumentSnapshots) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference mealsCollectionRef = db.collection("recipes");
-        for (QueryDocumentSnapshot favoriteDoc : favoriteDocumentSnapshots) {
+        for (QueryDocumentSnapshot favoriteDoc : favoriteDocumentSnapshots) { // favoriye eklediğim dökümanlar
             mealsCollectionRef.document(favoriteDoc.getId()).get().addOnSuccessListener(documentSnapshot -> {
                 if (documentSnapshot.exists()) {
                     updateUIWithMealData(documentSnapshot);
@@ -110,7 +130,7 @@ public class RecipeListFragment extends Fragment {
 
 
 
-    public void getSearchResult(String input, String selectedCategory) {
+    public void getSearchResult(String input, String selectedCategory) { // ENES ALĞAN
         db.collection("recipes")
                 .whereGreaterThanOrEqualTo("recipeName", input)
                 .whereLessThan("recipeName", input + "\uf8ff")

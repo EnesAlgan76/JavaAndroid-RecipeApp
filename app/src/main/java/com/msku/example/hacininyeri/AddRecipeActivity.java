@@ -59,25 +59,36 @@ public class AddRecipeActivity extends AppCompatActivity implements OnCategoryCl
             }
         });
 
-        findViewById(R.id.buttonGenerate).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.buttonShareRecipe).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (selectedImageUri == null) {
-                    Toast.makeText(AddRecipeActivity.this, "Lütfen bir resim seçin", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//                saveRecipeToFirestore2("Brownie", "200g çikolata, 150g tereyağı, 200g şeker, 3 yumurta, 100g un", "Çikolata ve tereyağını eritin. Diğer malzemeleri ekleyip karıştırın. 180°C'de 25 dk pişirin.", "25 dk", "https://www.karaca.com/blog/wp-content/uploads/2023/09/brownie2.jpg", "Tatlı");
+//                saveRecipeToFirestore2("Fırın Somon", "4 somon filetosu, zeytinyağı, tuz, karabiber, limon", "Somonları zeytinyağı, tuz, karabiber ve limon suyu ile marine edin. 200°C'de 20 dk fırınlayın.", "20 dk", "https://baliktarifi.com/wp-content/uploads/2017/02/firinda-baharatli-biberli-somon-fileto-tarifi-500x375.jpg", "Balık Ürünü");
+//                saveRecipeToFirestore2("Fırında Tavuk But", "4 tavuk but, sarımsak, tuz, kekik, limon suyu", "Tavuk butları baharatlarla marine edin. 180°C'de 40 dk fırınlayın. Ara sıra çevirin.", "40 dk", "https://cdn.ye-mek.net/App_UI/Img/out/650/2021/11/firinda-tavuk-but-resimli-yemek-tarifi(16).jpg?w=650&h=487", "Et Yemekleri");
+//                saveRecipeToFirestore2("Kabak Yemegi", "3 kabak, soğan, domates, sıvı yağ, tuz, baharatlar", "Soğanı kavurun, kabakları ekleyin. Domates ve baharatları ekleyip pişirin.", "30 dk", "https://cdn.yemek.com/mnresize/940/940/uploads/2019/07/kabak-yemegi-onecikan.jpg", "Sebze Yemekleri");
+//                saveRecipeToFirestore2("Pizza", "Pizza hamuru, domates sosu, rendelenmiş peynir, sucuk, mantar", "Hamuru açın, sosu sürün. Malzemeleri ekleyip 220°C'de 15 dk pişirin.", "15 dk", "https://cdn.yemek.com/mnresize/1250/833/uploads/2022/03/ev-usulu-pizza-yemekcom.jpg", "Hamur İşleri");
+//                saveRecipeToFirestore2("Mercimek Çorbası", "1 su bardağı kırmızı mercimek, soğan, havuç, tuz, karabiber", "Sebzeleri doğrayın, mercimeği ekleyin. 1 lt su ekleyip kaynayana kadar pişirin.", "30 dk", "https://image.hurimg.com/i/hurriyet/75/0x0/5e8f208dc9de3d0c68f0638a.jpg", "Çorba");
+//                saveRecipeToFirestore2("Cezar Salatası", "Marullar, tavuk göğsü, kruton, parmesan peyniri, Cezar sos", "Marulları doğrayın, tavuk göğsünü ızgara yapın. Malzemeleri karıştırıp sos ile servis edin.", "15 dk", "https://glossy.espreso.co.rs/data/images/2021/08/03/15/325706_cezarsalatashutterstock-1078415420_ff.jpg", "Salata");
+//                saveRecipeToFirestore2("Cheesecake", "200g labne peyniri, 200g bisküvi, 100g tereyağı, 150g şeker", "Bisküvileri ezin, tereyağı ile karıştırın. Kalıba yayıp labne karışımını ekleyin. 4 saat buzdolabında bekletin.", "4 saat", "https://i.nefisyemektarifleri.com/2022/04/27/limonlu-cheesecake-tarifi.jpg", "Tatlı");
+//                saveRecipeToFirestore2("Izgara Levrek", "2 levrek fileto, zeytinyağı, limon, tuz, kekik", "Levrek filetolarını marine edin. Izgarada her iki tarafını da 5'er dk pişirin.", "10 dk", "https://www.sosy.co/wp-content/uploads/2020/07/12-Sebzeli-Levrek-Izgara.jpg", "Balık Ürünü");
+//                saveRecipeToFirestore2("Kırmızı Et Güveç", "500g dana eti, patates, havuç, soğan, domates, tuz, baharatlar", "Tüm malzemeleri doğrayın, güvece yerleştirin. 180°C'de 1 saat pişirin.", "1 saat", "https://image.hurimg.com/i/hurriyet/75/750x422/5b0bc4878f1ed701f40f7d25.jpg", "Et Yemekleri");
 
-                String recipeName = ((EditText) findViewById(R.id.editTextRecipeName)).getText().toString();
-                String contentTitle = ((EditText) findViewById(R.id.editTextContents)).getText().toString();
-                String preparation = ((EditText) findViewById(R.id.editTextPreparation)).getText().toString();
-                String time = ((EditText) findViewById(R.id.editTextTime)).getText().toString();
+               if (selectedImageUri == null) {
+                   Toast.makeText(AddRecipeActivity.this, "Lütfen bir resim seçin", Toast.LENGTH_SHORT).show();
+                   return;
+               }
 
-                if(selectedCategory==""){
-                    Toast.makeText(AddRecipeActivity.this, "Lütfen bir kategori seçin", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+               String recipeName = ((EditText) findViewById(R.id.editTextRecipeName)).getText().toString();
+               String contentTitle = ((EditText) findViewById(R.id.editTextContents)).getText().toString();
+               String preparation = ((EditText) findViewById(R.id.editTextPreparation)).getText().toString();
+               String time = ((EditText) findViewById(R.id.editTextTime)).getText().toString();
 
-                uploadImageAndSaveRecipe(recipeName, contentTitle, preparation, time);
+               if(selectedCategory==""){
+                   Toast.makeText(AddRecipeActivity.this, "Lütfen bir kategori seçin", Toast.LENGTH_SHORT).show();
+                   return;
+               }
+
+               uploadImageAndSaveRecipe(recipeName, contentTitle, preparation, time);
             }
         });
     }
@@ -123,6 +134,7 @@ public class AddRecipeActivity extends AppCompatActivity implements OnCategoryCl
 
         mFirestore.collection("recipes")
                 .add(recipeMap)
+
                 .addOnSuccessListener(documentReference -> {
                     documentReference.update("id",documentReference.getId());
                     Toast.makeText(AddRecipeActivity.this, "Tarif başarıyla kaydedildi", Toast.LENGTH_SHORT).show();
@@ -135,4 +147,7 @@ public class AddRecipeActivity extends AppCompatActivity implements OnCategoryCl
     public void onCategoryClick(String categoryName) {
         selectedCategory = categoryName;
     }
+
+
+
 }

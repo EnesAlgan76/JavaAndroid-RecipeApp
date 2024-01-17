@@ -9,6 +9,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+ // *********** YUSUF YILDIZ ***********
+
 public class HomeActivity extends AppCompatActivity implements OnCategoryClickListener{
     ImageView home;
     ImageView explore;
@@ -36,7 +38,7 @@ public class HomeActivity extends AppCompatActivity implements OnCategoryClickLi
 
         home.setOnClickListener(view ->{
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.framentContainer, new HomeFragment())
+                    .replace(R.id.framentContainer, new HomeFragment()) //ENES ALĞAN
                     .commit();
 
         });
@@ -45,7 +47,7 @@ public class HomeActivity extends AppCompatActivity implements OnCategoryClickLi
 
         explore.setOnClickListener(view ->{
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.framentContainer, new ExploreFragment(this))
+                    .replace(R.id.framentContainer, new ExploreFragment(this)) //ENES ALĞAN
                     .commit();
 
         });
@@ -54,7 +56,7 @@ public class HomeActivity extends AppCompatActivity implements OnCategoryClickLi
 
         favorites.setOnClickListener(view ->{
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.framentContainer, new RecipeListFragment(new Favorites()))
+                    .replace(R.id.framentContainer, new RecipeListFragment(new Favorites())) //YUSUF YILDIZ
                     .commit();
 
         });
